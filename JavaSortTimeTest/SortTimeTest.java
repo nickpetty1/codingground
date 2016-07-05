@@ -19,9 +19,10 @@ public class SortTimeTest{
         System.out.println(mylist.get(6));
         System.out.println(mylist.get(7));
         long startTime = System.nanoTime();
+        //Collections.sort takes around 60ms to execute on 100,000 integers
         Collections.sort(mylist);
         
-        
+        //Selection sort, commented out. Takes around 15000MS to execute on 100,000 integers
         /*
         for (int i = 0; i < mylist.size() - 1; i++){
             int minPosition = i;

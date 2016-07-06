@@ -31,18 +31,16 @@ class scrabble:
                 print x,":",((",".join(outputList).upper()))
 
 def execute(x,userInput):
+    x = scrabble()
     x.letters = x.letterList()
     x.count(userInput)
     x.output()
 
 input1 = "PQAREIOURSTHGWIOAE_".lower()
-s = scrabble()
-execute(s,input1)
+execute("s",input1)
 
-s1 = scrabble()
 input2 = "LQTOONOEFFJZT".lower()
-execute(s1,input2)
+execute("s1",input2)
 
-s2 = scrabble()
 input3 = "AXHDRUIOR_XHJZUQEE".lower()
-execute(s2,input3)
+execute("s2",input3)

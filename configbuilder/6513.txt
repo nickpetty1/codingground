@@ -1,0 +1,18 @@
+hostname 6513-hostname
+!
+interface gi0/1
+ ip address 10.0.0.1 255.255.255.252
+!
+interface gi0/2
+ description conn-to-WAN
+ ip address 192.168.0.1 255.255.255.252
+!
+interface gi0/0/1
+ switchport access vlan 999
+!
+interface gi0/0/2
+ switchport access vlan 555
+!
+interface gi0/0/3
+ switchport mode trunk
+!

@@ -1,0 +1,18 @@
+hostname %hostname%
+!
+interface %INTERFACE%
+ ip address %IP_ADDRESS%
+!
+interface %INTERFACE%
+ description %DESCRIPTION%
+ ip address %IP_ADDRESS%
+!
+interface %INTERFACE%
+ switchport access vlan %VLAN%
+!
+interface %INTERFACE%
+ switchport access vlan %VLAN%
+!
+interface %INTERFACE%
+ switchport mode trunk
+!

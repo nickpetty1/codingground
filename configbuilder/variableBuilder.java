@@ -13,11 +13,13 @@ import java.io.Writer;
 public class variableBuilder {
 
 	public static void main(String[] args) throws IOException {
+	    String test;
 
 		config config = new config();
 		config.openConfig("6513.txt","output.txt", false);
 		config.findVariables();
 		config.buildTemplate("6513.txt","template.txt");
+		
 		//config.buildConfig("template.txt", "config1.txt")
 	}
 	
@@ -116,11 +118,32 @@ public class variableBuilder {
 			}
 		}
 		
-		public void buildconfig(String inputTemplate, String outputConfig) throws IOException {
+		public void buildConfig(String inputTemplate, String outputConfig) throws IOException {
 		    File templateFile = new File(inputTemplate);
 		    FileOutputStream newConfigFile = new FileOutputStream(outputConfig, false);
 		    BufferedReader template = new BufferedReader(new FileReader(templateFile));
 		    Writer newConfig = new BufferedWriter(new OutputStreamWriter(newConfigFile));
+		    
+		    //Still thinking of best way to store the variables so that building the template is dynamic
+		    //Go directly from existing config to file?
+		    // - may not have existing config
+		    //Build spreadsheet with configs and then pull from that to template
+		    // - would allow to fill in variables manually in to spreadsheet
+		    
+		    
+
 		}
+		
+		//TODO public void vlanMapping
+		    //build spreadsheet with a switchport to vlan mapping
+		
+		//TODO public void remoteGather
+		    //ssh to a device or devices and gather variables or build template
+		    //Stream show run directly though the other methods? or do I need to copy to local file first?
+		
+		//TODO public void cliInput
+		    //make a CLI input to allow user to control flow
+		
+		//TODO create a GUI to use program
 	}
 }

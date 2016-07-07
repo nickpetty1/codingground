@@ -13,8 +13,6 @@ import java.io.Writer;
 public class variableBuilder {
 
 	public static void main(String[] args) throws IOException {
-	    String test;
-
 		config config = new config();
 		config.openConfig("6513.txt","output.txt", false);
 		config.findVariables();
@@ -84,7 +82,6 @@ public class variableBuilder {
 		    BufferedReader configIn = new BufferedReader(new FileReader(outputFile));
 		    Writer configOut = new BufferedWriter(new OutputStreamWriter(template));
 		    
-		    
 		    String line = null;
 			while ((line = configIn.readLine()) != null) {
 				if(line.startsWith("hostname ")){
@@ -130,8 +127,6 @@ public class variableBuilder {
 		    //Build spreadsheet with configs and then pull from that to template
 		    // - would allow to fill in variables manually in to spreadsheet
 		    
-		    
-
 		}
 		
 		//TODO public void vlanMapping

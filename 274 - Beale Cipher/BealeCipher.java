@@ -23,15 +23,8 @@ public class BealeCipher{
             numberList.add(Integer.parseInt(numberStrList.get(i)));
         }
         
-
-        System.out.println((wordList.get(808).substring(0,1)).toLowerCase());
-        
         ArrayList<String> decrypt = new ArrayList<String>();
         
-        
-        System.out.println(wordList.get(806));
-        
-        /*
         for(int i = 0; i < numberList.size(); i++){
             int cipherKey = numberList.get(i);
             String firstLetter = (wordList.get(cipherKey - 1).substring(0,1)).toLowerCase();
@@ -41,7 +34,7 @@ public class BealeCipher{
         for(int i = 0; i < decrypt.size(); i++){
             System.out.print(decrypt.get(i));
         }
-        */
+       
         
 
  

@@ -1,0 +1,75 @@
+import random
+
+key1 = "e GggGg d gggGG H  l ggGgg o gGgGG r ggGGG w ggggG"
+encodedMessage = "GggGgggGggggGgggGgGG, ggggGgGgGGggGGGggGgggggGG!"
+decodedMessage = "Hello, world!"
+
+def decode(encoded,key):
+    key = key.split()
+    keyDict = {}
+    for x in range(len(key) / 2):
+        keyDict[key[x*2+1]] = key[x*2]
+    temp = ""
+    message = ""
+    for letter in encoded:
+        if letter == "g" or letter == "G":
+            temp = temp + letter
+        else:
+            message += letter
+        if keyDict.get(temp) != None:
+            message = message + keyDict.get(temp)
+            temp = ""
+    print message
+ //Encode not working properly. Can't make encode string variable length, when set to same length the first letter is getting written over   
+def encode(plainText):
+    plainText =  list(plainText)
+    keyDict = {}
+    encoded = ""
+    
+    for letter in plainText:
+        #print "debug",letter
+        if (keyDict.get(letter) == None) and (letter.isalpha() == True):
+            variable = True
+            while variable == True:
+                print "debug1",keyDict.get("H")
+                #print "debug 2",letter
+                variable2 = ""
+                temp = ""
+                for x in range(5):
+                    temp = temp + random.choice("g""G")
+                    #print temp
+                if not keyDict:
+                    #print "debug 3",letter
+                    print temp
+                    keyDict[letter] = temp
+                    print "debug2 ",keyDict("H")
+                    variable = False
+                    temp = ""
+                    #print "debug1"
+                else:
+                    #print "debug2"
+                    for key in keyDict:
+                        if temp in keyDict[key]:
+                            variable2 = False
+                if variable2 != False:
+                    keyDict[letter] = temp
+                    temp = ""
+                    variable = False
+
+    print keyDict
+    keyString =""
+    for key in keyDict:
+        keyString = keyString + " " + key + " " + keyDict[key]
+    
+    for letter in plainText:
+        if keyDict.get(letter) != None:
+            encoded = encoded + keyDict[letter]
+        else:
+            encoded = encoded + letter
+    print keyString
+    print encoded
+    
+    
+encode(decodedMessage)
+
+#decode(encodedMessage,key1)

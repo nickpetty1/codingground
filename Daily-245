@@ -1,7 +1,7 @@
 import random
 
-key1 = "e GggGg d gggGG H  l ggGgg o gGgGG r ggGGG w ggggG"
-encodedMessage = "GggGgggGggggGgggGgGG, ggggGgGgGGggGGGggGgggggGG!"
+key1 = "e GgGgG d GGggg H ggggG l gGGgg o ggGgg r gGggG w ggggg"
+encodedMessage = "ggggGGgGgGgGGgggGGggggGgg, gggggggGgggGggGgGGggGGggg!"
 decodedMessage = "Hello, world!"
 
 def decode(encoded,key):
@@ -20,7 +20,6 @@ def decode(encoded,key):
             message = message + keyDict.get(temp)
             temp = ""
     print message
- //Encode not working properly. Can't make encode string variable length, when set to same length the first letter is getting written over   
 def encode(plainText):
     plainText =  list(plainText)
     keyDict = {}
@@ -29,34 +28,15 @@ def encode(plainText):
     for letter in plainText:
         #print "debug",letter
         if (keyDict.get(letter) == None) and (letter.isalpha() == True):
-            variable = True
-            while variable == True:
-                print "debug1",keyDict.get("H")
-                #print "debug 2",letter
-                variable2 = ""
+            while keyDict.get(letter) == None:
                 temp = ""
                 for x in range(5):
                     temp = temp + random.choice("g""G")
-                    #print temp
-                if not keyDict:
-                    #print "debug 3",letter
-                    print temp
-                    keyDict[letter] = temp
-                    print "debug2 ",keyDict("H")
-                    variable = False
-                    temp = ""
-                    #print "debug1"
-                else:
-                    #print "debug2"
-                    for key in keyDict:
-                        if temp in keyDict[key]:
-                            variable2 = False
-                if variable2 != False:
-                    keyDict[letter] = temp
-                    temp = ""
-                    variable = False
+                for key in keyDict:
+                    if keyDict[key] == temp:
+                        temp = ""
+                keyDict[letter] = temp
 
-    print keyDict
     keyString =""
     for key in keyDict:
         keyString = keyString + " " + key + " " + keyDict[key]
@@ -70,6 +50,6 @@ def encode(plainText):
     print encoded
     
     
-encode(decodedMessage)
+#encode(decodedMessage)
 
-#decode(encodedMessage,key1)
+decode(encodedMessage,key1)

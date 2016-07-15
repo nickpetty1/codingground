@@ -1,7 +1,7 @@
 import random
 
-key1 = "e GgGgG d GGggg H ggggG l gGGgg o ggGgg r gGggG w ggggg"
-encodedMessage = "ggggGGgGgGgGGgggGGggggGgg, gggggggGgggGggGgGGggGGggg!"
+key1 = "e ggGggG d GgGgGgG H gGGGGg l GggGG o GGGGgG r ggg w GgGGG"
+encodedMessage = "gGGGGgggGggGGggGGGggGGGGGGgG, GgGGGGGGGgGgggGggGGGgGgGgG!"
 decodedMessage = "Hello, world!"
 
 def decode(encoded,key):
@@ -30,12 +30,13 @@ def encode(plainText):
         if (keyDict.get(letter) == None) and (letter.isalpha() == True):
             while keyDict.get(letter) == None:
                 temp = ""
-                for x in range(5):
+                for x in range(random.randint(3,8)):
                     temp = temp + random.choice("g""G")
                 for key in keyDict:
-                    if keyDict[key] == temp:
-                        temp = ""
+                    if temp in keyDict[key] or keyDict[key] in temp:
+                        temp = None
                 keyDict[letter] = temp
+                print keyDict[letter]
 
     keyString =""
     for key in keyDict:

@@ -64,6 +64,7 @@ public class HelloWorld{
         }else{
             arraylist = myMap.get(name);
             arraylist.add(grade);
+            //Sort array in descending order based on requirements
             Collections.sort(arraylist, Collections.reverseOrder());
             myMap.put(name,arraylist);
         }
@@ -81,6 +82,7 @@ public class HelloWorld{
             arraylist = myMap.get(name);
             arraylist.remove(oldGrade);
             arraylist.add(newGrade);
+            //Sort array in descending order based on requirements
             Collections.sort(arraylist, Collections.reverseOrder());
             myMap.put(name,arraylist);
         }else{

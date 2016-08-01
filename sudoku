@@ -1,0 +1,27 @@
+def done_or_not(board):
+    #verify hoirzonal lines
+    for line in board:
+        #print(len(set(line)))
+        if len(set(line)) != 9:
+            print(line)
+            return "Try Again!"
+    #verify vertical lines
+    verticalLines = []
+    for x in range(9):
+        tempList = []
+        for n in range(9):
+            tempList.append(board[x][n])
+        verticalLines.append(tempList)
+    #print(verticalLines)
+    for line in verticalLines:
+        if len(set(line)) != 9:
+            print(line)
+            return "Try Again!"
+    #verify squares
+    
+    
+    
+    
+    
+    
+    return "Finished!"
